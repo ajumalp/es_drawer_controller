@@ -13,9 +13,7 @@ dependencies:
     sdk: flutter
 
   es_drawer_controller:
-    git:
-      url: git://github.com/ajumalp/es_drawer_controller.git
-      ref: main
+    path: ../
 
 
   cupertino_icons: ^1.0.2
@@ -25,5 +23,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
+
+  assets:
+    - assets/images/ic_launcher.png

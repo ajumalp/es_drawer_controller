@@ -12,11 +12,11 @@ import 'es_app_theme.dart';
 
 class ESDrawer<T> extends StatefulWidget {
   final String assetLogo;
-  final String title;
-  final String subTitle;
+  final String? title;
+  final String? subTitle;
   final List<ESDrawerItem> drawerList;
-  final TextStyle titleStyle;
-  final TextStyle subTitleStyle;
+  final TextStyle? titleStyle;
+  final TextStyle? subTitleStyle;
 
   const ESDrawer({
     required this.screenIndex,
@@ -26,8 +26,8 @@ class ESDrawer<T> extends StatefulWidget {
     this.assetLogo = '',
     this.title = '',
     this.subTitle = '',
-    this.titleStyle = const TextStyle(decoration: TextDecoration.none, fontWeight: FontWeight.w600, color: ESAppTheme.grey, fontSize: 24),
-    this.subTitleStyle = const TextStyle(decoration: TextDecoration.none, fontWeight: FontWeight.w600, color: ESAppTheme.grey, fontSize: 10),
+    this.titleStyle,
+    this.subTitleStyle,
     Key? key,
   }) : super(key: key);
 
@@ -56,14 +56,16 @@ class _ESDrawerState<T> extends State<ESDrawer> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   _animatedLogo(widget.assetLogo),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 4),
-                    child: Text(widget.title, style: widget.titleStyle),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 2, left: 4),
-                    child: Text(widget.subTitle, style: widget.subTitleStyle),
-                  ),
+                  if (widget.title != null && widget.title!.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 4),
+                      child: Text(widget.title!, style: widget.titleStyle),
+                    ),
+                  if (widget.subTitle != null && widget.subTitle!.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 2, left: 4),
+                      child: Text(widget.subTitle!, style: widget.subTitleStyle),
+                    ),
                 ],
               ),
             ),

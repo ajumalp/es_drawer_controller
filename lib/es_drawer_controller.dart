@@ -18,9 +18,14 @@ class ESDrawerController<T> extends StatefulWidget {
   final AnimatedIconData animatedIconData;
   final Widget? menuView;
   final T screenIndex;
+  final String assetLogo;
+  final String? title;
+  final String? subTitle;
+  final TextStyle? titleStyle;
+  final TextStyle? subTitleStyle;
   final List<ESDrawerItem> drawerList;
 
-  const ESDrawerController({
+  ESDrawerController({
     required this.onDrawerCall,
     required this.screenView,
     required this.screenIndex,
@@ -29,6 +34,11 @@ class ESDrawerController<T> extends StatefulWidget {
     this.drawerIsOpen,
     this.animatedIconData = AnimatedIcons.arrow_menu,
     this.drawerWidth = 250,
+    this.assetLogo = '',
+    this.title = '',
+    this.subTitle = '',
+    this.titleStyle = const TextStyle(decoration: TextDecoration.none, fontWeight: FontWeight.w600, color: ESAppTheme.grey, fontSize: 18),
+    this.subTitleStyle = const TextStyle(decoration: TextDecoration.none, fontWeight: FontWeight.w600, color: ESAppTheme.grey, fontSize: 12),
     Key? key,
   }) : super(key: key);
 
@@ -119,6 +129,11 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerP
                     return Transform(
                       transform: Matrix4.translationValues(scrollController.offset, 0.0, 0.0),
                       child: ESDrawer<T>(
+                        assetLogo: widget.assetLogo,
+                        title: widget.title,
+                        subTitle: widget.subTitle,
+                        titleStyle: widget.titleStyle,
+                        subTitleStyle: widget.subTitleStyle,
                         drawerList: widget.drawerList,
                         screenIndex: widget.screenIndex,
                         iconAnimationController: iconAnimationController,
