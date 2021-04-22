@@ -3,12 +3,13 @@ description: Sample project to show how to use es_drawer_controller
 
 publish_to: 'none'
 
-version: 1.0.1+1
+version: 1.0.3+6
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  url_launcher: ^6.0.3
   flutter:
     sdk: flutter
 

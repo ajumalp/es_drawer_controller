@@ -10,9 +10,34 @@ import 'package:flutter/material.dart';
 import 'es_app_theme.dart';
 import 'es_home_drawer.dart';
 
+enum eDrawerItemType {
+  ditDivider,
+  ditMenu,
+  ditLink,
+  ditShareLink,
+}
+
+class ESDrawerItem<T> {
+  final T index;
+  final eDrawerItemType type;
+  final String labelName;
+  final IconData? iconData;
+  final String? launchURL;
+  final String imageName;
+
+  const ESDrawerItem({
+    required this.index,
+    required this.type,
+    this.iconData,
+    this.launchURL,
+    this.labelName = '',
+    this.imageName = '',
+  });
+}
+
 class ESDrawerController<T> extends StatefulWidget {
   final double drawerWidth;
-  final Function onDrawerCall;
+  final Function(ESDrawerItem) onDrawerCall;
   final Widget screenView;
   final Function(bool)? drawerIsOpen;
   final AnimatedIconData animatedIconData;
@@ -137,10 +162,10 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerP
                         drawerList: widget.drawerList,
                         screenIndex: widget.screenIndex,
                         iconAnimationController: iconAnimationController,
-                        callBackIndex: (indexType) {
+                        callBackItem: (drawItem) {
                           onDrawerClick();
                           try {
-                            widget.onDrawerCall(indexType);
+                            if (drawItem != null) widget.onDrawerCall(drawItem);
                           } catch (e) {
                             debugPrint('drawer_user_controller?.dart: $e');
                           }

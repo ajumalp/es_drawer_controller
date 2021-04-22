@@ -1,3 +1,8 @@
+## 1.0.3 Release 
+
+* Added Share Menu [You can share a link by setting launchURL]
+* Added Link Menu [You can open a link in browser by setting launchURL]
+
 ## 1.0.2 Release 
 
 * Initial Release 

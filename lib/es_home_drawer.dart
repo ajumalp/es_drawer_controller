@@ -5,8 +5,10 @@
  * Date created: 21-April-2021
  */
 
+import 'package:es_drawer_controller/es_drawer_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 import 'es_app_theme.dart';
 
@@ -21,7 +23,7 @@ class ESDrawer<T> extends StatefulWidget {
   const ESDrawer({
     required this.screenIndex,
     required this.iconAnimationController,
-    required this.callBackIndex,
+    required this.callBackItem,
     required this.drawerList,
     this.assetLogo = '',
     this.title = '',
@@ -33,7 +35,7 @@ class ESDrawer<T> extends StatefulWidget {
 
   final AnimationController iconAnimationController;
   final T screenIndex;
-  final Function callBackIndex;
+  final Function(ESDrawerItem?) callBackItem;
 
   @override
   _ESDrawerState<T> createState() => _ESDrawerState<T>();
@@ -125,7 +127,14 @@ class _ESDrawerState<T> extends State<ESDrawer> {
       child: InkWell(
         splashColor: Colors.grey.withOpacity(0.1),
         highlightColor: Colors.transparent,
-        onTap: () => navigationtoScreen(drawerItem.index),
+        onTap: () {
+          if ((drawerItem.type == eDrawerItemType.ditShareLink) && (drawerItem.launchURL != null && drawerItem.launchURL!.isNotEmpty)) {
+            Share.share(drawerItem.launchURL!);
+            navigationtoScreen(null);
+          } else {
+            navigationtoScreen(drawerItem);
+          }
+        },
         child: Stack(
           children: <Widget>[
             Container(
@@ -186,27 +195,5 @@ class _ESDrawerState<T> extends State<ESDrawer> {
     );
   }
 
-  Future<void> navigationtoScreen(T indexScreen) async => widget.callBackIndex(indexScreen);
-}
-
-enum eDrawerItemType {
-  ditDivider,
-  ditMenu,
-  ditLink,
-}
-
-class ESDrawerItem<T> {
-  final T index;
-  final eDrawerItemType type;
-  final String labelName;
-  final IconData? iconData;
-  final String imageName;
-
-  const ESDrawerItem({
-    required this.index,
-    required this.type,
-    this.iconData,
-    this.labelName = '',
-    this.imageName = '',
-  });
+  Future<void> navigationtoScreen(ESDrawerItem? item) async => widget.callBackItem(item);
 }
