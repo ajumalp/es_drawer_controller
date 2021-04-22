@@ -12,6 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+  es_drawer_controller:
+    git:
+      url: git://github.com/ajumalp/es_drawer_controller.git
+      ref: main
+
 
   cupertino_icons: ^1.0.2
 
