@@ -1,3 +1,7 @@
+## 1.0.5 Release 
+
+* Document update 
+
 ## 1.0.4 Release 
 
 * Moved all file to main.dart. 

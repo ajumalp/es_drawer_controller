@@ -1,7 +1,8 @@
 name: es_drawer_controller
 description: A Flutter package for drawer controller 
-version: 1.0.4
-homepage: https://erratums.com, https://github.com/ajumalp/es_drawer_controller
+version: 1.0.5
+homepage: https://erratums.com
+repository: https://github.com/ajumalp/es_drawer_controller
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
