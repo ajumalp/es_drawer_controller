@@ -1,5 +1,4 @@
 import 'package:es_drawer_controller/es_drawer_controller.dart';
-import 'package:es_drawer_controller_example/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,6 +13,14 @@ class MyApp extends StatelessWidget {
       home: MainNavigation(),
     );
   }
+}
+
+// Sample home page screen { Ajmal }
+class HomePage extends StatelessWidget {
+  final String title;
+  const HomePage({required this.title});
+  @override
+  Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: Text(title), centerTitle: true));
 }
 
 // 1st you need to add an enumaration to represent your menus in the drawer

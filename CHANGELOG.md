@@ -1,3 +1,8 @@
+## 1.0.4 Release 
+
+* Moved all file to main.dart. 
+* So that example in pubdev will show all required code 
+
 ## 1.0.3 Release 
 
 * Added Share Menu [You can share a link by setting launchURL]
@@ -10,7 +15,3 @@
 * Added title in drawer 
 * Added subtitle in drawe 
 * Added Sample Project 
-
-## 1.0.1 First Test Release
-
-* First Test Release
