@@ -1,6 +1,7 @@
 ## 1.0.5 Release 
 
 * Document update 
+* Fix pubdev issues 
 
 ## 1.0.4 Release 
 

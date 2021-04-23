@@ -7,5 +7,5 @@
 
 library es_drawer_controller;
 
-export 'es_home_drawer.dart';
 export 'es_drawer_controller.dart';
+export 'es_home_drawer.dart';
