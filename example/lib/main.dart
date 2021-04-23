@@ -21,7 +21,8 @@ class HomePage extends StatelessWidget {
   final String title;
   const HomePage({required this.title});
   @override
-  Widget build(BuildContext context) => Scaffold(appBar: AppBar(title: Text(title), centerTitle: true));
+  Widget build(BuildContext context) =>
+      Scaffold(appBar: AppBar(title: Text(title), centerTitle: true));
 }
 
 // 1st you need to add an enumaration to represent your menus in the drawer
@@ -38,10 +39,24 @@ enum eDrawerIndex {
 class MainNavigation extends StatefulWidget {
   // This field is where you need to add your menu items { Ajmal }
   final List<ESDrawerItem> _cDrawerList = <ESDrawerItem>[
-    const ESDrawerItem(type: eDrawerItemType.ditMenu, index: eDrawerIndex.diHome, labelName: 'Home', iconData: Icons.home),
-    const ESDrawerItem(type: eDrawerItemType.ditMenu, index: eDrawerIndex.diProfile, labelName: 'My Profile', iconData: Icons.person),
-    const ESDrawerItem(type: eDrawerItemType.ditDivider, index: eDrawerIndex.diDivider), // Add a divider here
-    const ESDrawerItem(type: eDrawerItemType.ditLink, index: eDrawerIndex.diShare, labelName: 'Share', iconData: Icons.share),
+    const ESDrawerItem(
+        type: eDrawerItemType.ditMenu,
+        index: eDrawerIndex.diHome,
+        labelName: 'Home',
+        iconData: Icons.home),
+    const ESDrawerItem(
+        type: eDrawerItemType.ditMenu,
+        index: eDrawerIndex.diProfile,
+        labelName: 'My Profile',
+        iconData: Icons.person),
+    const ESDrawerItem(
+        type: eDrawerItemType.ditDivider,
+        index: eDrawerIndex.diDivider), // Add a divider here
+    const ESDrawerItem(
+        type: eDrawerItemType.ditLink,
+        index: eDrawerIndex.diShare,
+        labelName: 'Share',
+        iconData: Icons.share),
     const ESDrawerItem(
       type: eDrawerItemType.ditLink,
       index: eDrawerIndex.diAboutUS,
@@ -79,7 +94,8 @@ class _MainNavigationState extends State<MainNavigation> {
 
   void _changeIndex(ESDrawerItem drawerItem) {
     // If user click on the same menu which is not marked as link/share then no need to create the same class again
-    if (drawerItem.type == eDrawerItemType.ditMenu && (drawerIndex == drawerItem.index || !mounted)) return;
+    if (drawerItem.type == eDrawerItemType.ditMenu &&
+        (drawerIndex == drawerItem.index || !mounted)) return;
 
     // Update new drawer index
     drawerIndex = drawerItem.index;
@@ -91,7 +107,8 @@ class _MainNavigationState extends State<MainNavigation> {
         setState(() => screenView = HomePage(title: 'Profile Page'));
         break;
       case eDrawerIndex.diShare:
-        setState(() => Share.share('https://github.com/ajumalp/es_drawer_controller'));
+        setState(() =>
+            Share.share('https://github.com/ajumalp/es_drawer_controller'));
         break;
       case eDrawerIndex.diAboutUS:
         setState(() => launch('https://erratums.com'));
