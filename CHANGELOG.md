@@ -1,3 +1,7 @@
+## 1.0.6 Release 
+
+* Removing package dependency "share". This package only support Android and iOS
+
 ## 1.0.5 Release 
 
 * Document update 

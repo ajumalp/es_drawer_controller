@@ -14,7 +14,6 @@ enum eDrawerItemType {
   ditDivider,
   ditMenu,
   ditLink,
-  ditShareLink,
 }
 
 class ESDrawerItem<T> {
@@ -62,8 +61,16 @@ class ESDrawerController<T> extends StatefulWidget {
     this.assetLogo = '',
     this.title = '',
     this.subTitle = '',
-    this.titleStyle = const TextStyle(decoration: TextDecoration.none, fontWeight: FontWeight.w600, color: ESAppTheme.grey, fontSize: 18),
-    this.subTitleStyle = const TextStyle(decoration: TextDecoration.none, fontWeight: FontWeight.w600, color: ESAppTheme.grey, fontSize: 12),
+    this.titleStyle = const TextStyle(
+        decoration: TextDecoration.none,
+        fontWeight: FontWeight.w600,
+        color: ESAppTheme.grey,
+        fontSize: 18),
+    this.subTitleStyle = const TextStyle(
+        decoration: TextDecoration.none,
+        fontWeight: FontWeight.w600,
+        color: ESAppTheme.grey,
+        fontSize: 12),
     Key? key,
   }) : super(key: key);
 
@@ -71,7 +78,8 @@ class ESDrawerController<T> extends StatefulWidget {
   _ESDrawerControllerState<T> createState() => _ESDrawerControllerState<T>();
 }
 
-class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerProviderStateMixin {
+class _ESDrawerControllerState<T> extends State<ESDrawerController>
+    with TickerProviderStateMixin {
   double scrolloffset = 0.0;
 
   late final ScrollController scrollController;
@@ -81,10 +89,14 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerP
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(duration: const Duration(milliseconds: 2000), vsync: this);
-    iconAnimationController = AnimationController(vsync: this, duration: const Duration());
-    iconAnimationController.animateTo(1.0, duration: const Duration(), curve: Curves.fastOutSlowIn);
-    scrollController = ScrollController(initialScrollOffset: widget.drawerWidth);
+    animationController = AnimationController(
+        duration: const Duration(milliseconds: 2000), vsync: this);
+    iconAnimationController =
+        AnimationController(vsync: this, duration: const Duration());
+    iconAnimationController.animateTo(1.0,
+        duration: const Duration(), curve: Curves.fastOutSlowIn);
+    scrollController =
+        ScrollController(initialScrollOffset: widget.drawerWidth);
     scrollController.addListener(() {
       if (scrollController.offset <= 0) {
         if (scrolloffset != 1.0) {
@@ -98,9 +110,13 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerP
             });
           }
         }
-        iconAnimationController.animateTo(0.0, duration: const Duration(), curve: Curves.fastOutSlowIn);
+        iconAnimationController.animateTo(0.0,
+            duration: const Duration(), curve: Curves.fastOutSlowIn);
       } else if (scrollController.offset < widget.drawerWidth.floor()) {
-        iconAnimationController.animateTo((scrollController.offset * 100 / (widget.drawerWidth)) / 100, duration: const Duration(), curve: Curves.fastOutSlowIn);
+        iconAnimationController.animateTo(
+            (scrollController.offset * 100 / (widget.drawerWidth)) / 100,
+            duration: const Duration(),
+            curve: Curves.fastOutSlowIn);
       } else {
         if (scrolloffset != 0.0) {
           if (mounted) {
@@ -113,7 +129,8 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerP
             });
           }
         }
-        iconAnimationController.animateTo(1.0, duration: const Duration(), curve: Curves.fastOutSlowIn);
+        iconAnimationController.animateTo(1.0,
+            duration: const Duration(), curve: Curves.fastOutSlowIn);
       }
     });
     WidgetsBinding.instance?.addPostFrameCallback((_) => getInitState());
@@ -152,7 +169,8 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerP
                   animation: iconAnimationController,
                   builder: (BuildContext context, _) {
                     return Transform(
-                      transform: Matrix4.translationValues(scrollController.offset, 0.0, 0.0),
+                      transform: Matrix4.translationValues(
+                          scrollController.offset, 0.0, 0.0),
                       child: ESDrawer<T>(
                         assetLogo: widget.assetLogo,
                         title: widget.title,
@@ -182,7 +200,9 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerP
                   decoration: BoxDecoration(
                     color: ESAppTheme.white,
                     boxShadow: <BoxShadow>[
-                      BoxShadow(color: ESAppTheme.grey.withOpacity(0.6), blurRadius: 24),
+                      BoxShadow(
+                          color: ESAppTheme.grey.withOpacity(0.6),
+                          blurRadius: 24),
                     ],
                   ),
                   child: Stack(
@@ -191,23 +211,31 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController> with TickerP
                         ignoring: scrolloffset == 1 || false,
                         child: widget.screenView,
                       ),
-                      if (scrolloffset == 1.0) GestureDetector(onTap: () => onDrawerClick()),
+                      if (scrolloffset == 1.0)
+                        GestureDetector(onTap: () => onDrawerClick()),
                       Padding(
-                        padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 8, left: 8),
+                        padding: EdgeInsets.only(
+                            top: MediaQuery.of(context).padding.top + 8,
+                            left: 8),
                         child: SizedBox(
                           width: AppBar().preferredSize.height - 8,
                           height: AppBar().preferredSize.height - 8,
                           child: Material(
                             color: Colors.transparent,
                             child: InkWell(
-                              borderRadius: BorderRadius.circular(AppBar().preferredSize.height),
+                              borderRadius: BorderRadius.circular(
+                                  AppBar().preferredSize.height),
                               onTap: () {
-                                FocusScope.of(context).requestFocus(FocusNode());
+                                FocusScope.of(context)
+                                    .requestFocus(FocusNode());
                                 onDrawerClick();
                               },
                               child: Center(
                                 // if you use your own menu view UI you add form initialization
-                                child: widget.menuView ?? AnimatedIcon(icon: widget.animatedIconData, progress: iconAnimationController),
+                                child: widget.menuView ??
+                                    AnimatedIcon(
+                                        icon: widget.animatedIconData,
+                                        progress: iconAnimationController),
                               ),
                             ),
                           ),

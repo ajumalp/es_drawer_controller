@@ -1,5 +1,6 @@
 import 'package:es_drawer_controller/es_drawer_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MyApp());
@@ -40,7 +41,7 @@ class MainNavigation extends StatefulWidget {
     const ESDrawerItem(type: eDrawerItemType.ditMenu, index: eDrawerIndex.diHome, labelName: 'Home', iconData: Icons.home),
     const ESDrawerItem(type: eDrawerItemType.ditMenu, index: eDrawerIndex.diProfile, labelName: 'My Profile', iconData: Icons.person),
     const ESDrawerItem(type: eDrawerItemType.ditDivider, index: eDrawerIndex.diDivider), // Add a divider here
-    const ESDrawerItem(type: eDrawerItemType.ditShareLink, index: eDrawerIndex.diShare, labelName: 'Share', iconData: Icons.share, launchURL: 'www.erratums.com'),
+    const ESDrawerItem(type: eDrawerItemType.ditLink, index: eDrawerIndex.diShare, labelName: 'Share', iconData: Icons.share),
     const ESDrawerItem(
       type: eDrawerItemType.ditLink,
       index: eDrawerIndex.diAboutUS,
@@ -89,7 +90,9 @@ class _MainNavigationState extends State<MainNavigation> {
       case eDrawerIndex.diProfile:
         setState(() => screenView = HomePage(title: 'Profile Page'));
         break;
-
+      case eDrawerIndex.diShare:
+        setState(() => Share.share('https://github.com/ajumalp/es_drawer_controller'));
+        break;
       case eDrawerIndex.diAboutUS:
         setState(() => launch('https://erratums.com'));
         break;

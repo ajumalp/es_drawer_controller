@@ -8,7 +8,6 @@
 import 'package:es_drawer_controller/es_drawer_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
 
 import 'es_app_theme.dart';
 
@@ -66,7 +65,8 @@ class _ESDrawerState<T> extends State<ESDrawer> {
                   if (widget.subTitle != null && widget.subTitle!.isNotEmpty)
                     Padding(
                       padding: const EdgeInsets.only(top: 2, left: 4),
-                      child: Text(widget.subTitle!, style: widget.subTitleStyle),
+                      child:
+                          Text(widget.subTitle!, style: widget.subTitleStyle),
                     ),
                 ],
               ),
@@ -82,7 +82,8 @@ class _ESDrawerState<T> extends State<ESDrawer> {
               itemBuilder: (BuildContext context, int index) {
                 switch (widget.drawerList[index].type) {
                   case eDrawerItemType.ditDivider:
-                    return Divider(height: 1, color: ESAppTheme.grey.withOpacity(0.6));
+                    return Divider(
+                        height: 1, color: ESAppTheme.grey.withOpacity(0.6));
 
                   default:
                     return inkwell(widget.drawerList[index]);
@@ -100,15 +101,27 @@ class _ESDrawerState<T> extends State<ESDrawer> {
       animation: widget.iconAnimationController,
       builder: (BuildContext context, _) {
         return ScaleTransition(
-          scale: AlwaysStoppedAnimation<double>(1.0 - (widget.iconAnimationController.value) * 0.2),
+          scale: AlwaysStoppedAnimation<double>(
+              1.0 - (widget.iconAnimationController.value) * 0.2),
           child: RotationTransition(
-            turns: AlwaysStoppedAnimation<double>(Tween<double>(begin: 0.0, end: 96.0).animate(CurvedAnimation(parent: widget.iconAnimationController, curve: Curves.fastOutSlowIn)).value / 180),
+            turns: AlwaysStoppedAnimation<double>(
+                Tween<double>(begin: 0.0, end: 96.0)
+                        .animate(CurvedAnimation(
+                            parent: widget.iconAnimationController,
+                            curve: Curves.fastOutSlowIn))
+                        .value /
+                    180),
             child: Container(
               height: 72,
               width: 72,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                boxShadow: <BoxShadow>[BoxShadow(color: ESAppTheme.grey.withOpacity(0.6), offset: const Offset(2.0, 4.0), blurRadius: 8)],
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: ESAppTheme.grey.withOpacity(0.6),
+                      offset: const Offset(2.0, 4.0),
+                      blurRadius: 8)
+                ],
               ),
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(60.0)),
@@ -127,14 +140,7 @@ class _ESDrawerState<T> extends State<ESDrawer> {
       child: InkWell(
         splashColor: Colors.grey.withOpacity(0.1),
         highlightColor: Colors.transparent,
-        onTap: () {
-          if ((drawerItem.type == eDrawerItemType.ditShareLink) && (drawerItem.launchURL != null && drawerItem.launchURL!.isNotEmpty)) {
-            Share.share(drawerItem.launchURL!);
-            navigationtoScreen(null);
-          } else {
-            navigationtoScreen(drawerItem);
-          }
-        },
+        onTap: () => navigationtoScreen(drawerItem),
         child: Stack(
           children: <Widget>[
             Container(
@@ -147,17 +153,25 @@ class _ESDrawerState<T> extends State<ESDrawer> {
                     SizedBox(
                       width: 24,
                       height: 24,
-                      child: Image.asset(drawerItem.imageName, color: widget.screenIndex == drawerItem.index ? Colors.blue : ESAppTheme.nearlyBlack),
+                      child: Image.asset(drawerItem.imageName,
+                          color: widget.screenIndex == drawerItem.index
+                              ? Colors.blue
+                              : ESAppTheme.nearlyBlack),
                     )
                   else
-                    Icon(drawerItem.iconData, color: widget.screenIndex == drawerItem.index ? Colors.blue : ESAppTheme.nearlyBlack),
+                    Icon(drawerItem.iconData,
+                        color: widget.screenIndex == drawerItem.index
+                            ? Colors.blue
+                            : ESAppTheme.nearlyBlack),
                   const Padding(padding: EdgeInsets.all(4.0)),
                   Text(
                     drawerItem.labelName,
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
-                      color: widget.screenIndex == drawerItem.index ? Colors.blue : ESAppTheme.nearlyBlack,
+                      color: widget.screenIndex == drawerItem.index
+                          ? Colors.blue
+                          : ESAppTheme.nearlyBlack,
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -169,7 +183,11 @@ class _ESDrawerState<T> extends State<ESDrawer> {
                 animation: widget.iconAnimationController,
                 builder: (BuildContext context, _) {
                   return Transform(
-                    transform: Matrix4.translationValues((MediaQuery.of(context).size.width * 0.75 - 64) * (1.0 - widget.iconAnimationController.value - 1.0), 0.0, 0.0),
+                    transform: Matrix4.translationValues(
+                        (MediaQuery.of(context).size.width * 0.75 - 64) *
+                            (1.0 - widget.iconAnimationController.value - 1.0),
+                        0.0,
+                        0.0),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 8, bottom: 8),
                       child: Container(
@@ -195,5 +213,6 @@ class _ESDrawerState<T> extends State<ESDrawer> {
     );
   }
 
-  Future<void> navigationtoScreen(ESDrawerItem? item) async => widget.callBackItem(item);
+  Future<void> navigationtoScreen(ESDrawerItem? item) async =>
+      widget.callBackItem(item);
 }
