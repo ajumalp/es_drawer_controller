@@ -1,11 +1,10 @@
-# Custom Navigation Drawer Controller
 
-A Flutter package for drawer controller 
+# Navigation Drawer Controller 
+[![pub package](https://img.shields.io/pub/v/es_drawer_controller.svg)](https://pub.dartlang.org/packages/es_drawer_controller)
 
-## Screenshots 
+**A Flutter package for drawer controller**
 
-|   |   |   |
-|---|---|---|
+### Screenshots            
 |<img src="other/images/demo.gif" alt="drawing" height="400"/>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<img src="other/images/demo.jpg" height="400"/>|
 
 <br/>    

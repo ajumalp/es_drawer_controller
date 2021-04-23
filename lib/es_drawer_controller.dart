@@ -21,14 +21,12 @@ class ESDrawerItem<T> {
   final eDrawerItemType type;
   final String labelName;
   final IconData? iconData;
-  final String? launchURL;
   final String imageName;
 
   const ESDrawerItem({
     required this.index,
     required this.type,
     this.iconData,
-    this.launchURL,
     this.labelName = '',
     this.imageName = '',
   });

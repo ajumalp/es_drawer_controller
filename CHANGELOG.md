@@ -1,10 +1,13 @@
+## 1.0.7 Release 
+
+* Added documentation
+
 ## 1.0.6 Release 
 
 * Removing package dependency "share". This package only support Android and iOS
 
 ## 1.0.5 Release 
 
-* Document update 
 * Fix pubdev issues 
 
 ## 1.0.4 Release 

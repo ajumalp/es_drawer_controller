@@ -63,8 +63,6 @@ class MainNavigation extends StatefulWidget {
       index: eDrawerIndex.diAboutUS,
       labelName: 'About US',
       iconData: Icons.group,
-      // Please note: LaunchURL won't work. Can't open in package without activity { Ajmal }
-      launchURL: '',
     ),
   ];
 
