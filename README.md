@@ -5,8 +5,8 @@
 **A Flutter package for drawer controller**
 
 ### Screenshots            
-|<img src="https://raw.githubusercontent.com/ajumalp/es_drawer_controller/main/other/images/demo.gif" alt="drawing" height="400"/>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<img src="https://raw.githubusercontent.com/ajumalp/es_drawer_controller/main/other/images/demo.jpg" height="400"/>|
 
+<img src="https://raw.githubusercontent.com/ajumalp/es_drawer_controller/main/other/images/demo.gif" alt="drawing" height="400"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<img src="https://raw.githubusercontent.com/ajumalp/es_drawer_controller/main/other/images/demo.jpg" height="400"/>|  
 <br/>    
 
 ## Getting Started
