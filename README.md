@@ -7,7 +7,6 @@
 ### Screenshots            
 
 <img src="https://raw.githubusercontent.com/ajumalp/es_drawer_controller/main/other/images/demo.gif" alt="drawing" height="400"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<img src="https://raw.githubusercontent.com/ajumalp/es_drawer_controller/main/other/images/demo.jpg" height="400"/>|  
-<br/>    
 
 ## Getting Started
 
@@ -15,8 +14,6 @@ An example for flutter is provided [here](https://github.com/ajumalp/es_drawer_c
 
 As shown in the above screenshots, this control can create awesome navigation drawer very quickly. 
       
-<br/>    
-
 ## How to create     
 
 - **Create an enumaration and add all the name of menu your required as below**
