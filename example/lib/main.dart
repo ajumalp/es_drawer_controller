@@ -38,7 +38,8 @@ enum eDrawerIndex {
 // Now create a class for Navigation Drawer as below
 class MainNavigation extends StatefulWidget {
   // This field is where you need to add your menu items { Ajmal }
-  final List<ESDrawerItem> _cDrawerList = <ESDrawerItem>[
+  final List<ESDrawerItem<eDrawerIndex>> _cDrawerList =
+      <ESDrawerItem<eDrawerIndex>>[
     const ESDrawerItem(
         type: eDrawerItemType.ditMenu,
         index: eDrawerIndex.diHome,
