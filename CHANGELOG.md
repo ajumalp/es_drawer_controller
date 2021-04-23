@@ -1,3 +1,7 @@
+## 1.0.8 Release 
+
+* Code review fixes 
+
 ## 1.0.7 Release 
 
 * Added documentation
