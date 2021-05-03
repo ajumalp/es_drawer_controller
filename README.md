@@ -32,19 +32,31 @@ As shown in the above screenshots, this control can create awesome navigation dr
   class MainNavigation extends StatefulWidget {
     // This field is where you need to add your menu items { Ajmal }
     final List<ESDrawerItem<eDrawerIndex>> _cDrawerList = <ESDrawerItem<eDrawerIndex>>[
-        const ESDrawerItem(type: eDrawerItemType.ditMenu, index: eDrawerIndex.diHome, labelName: 'Home', iconData: Icons.home),
-        const ESDrawerItem(type: eDrawerItemType.ditMenu, index: eDrawerIndex.diProfile, labelName: 'My Profile', iconData: Icons.person),
-        const ESDrawerItem(type: eDrawerItemType.ditDivider, index: eDrawerIndex.diDivider), // Add a divider here
-        const ESDrawerItem(type: eDrawerItemType.ditLink, index: eDrawerIndex.diShare, labelName: 'Share', iconData: Icons.share),
-        const ESDrawerItem(
+    const ESDrawerItem(
+        type: eDrawerItemType.ditMenu,
+        index: eDrawerIndex.diHome,
+        labelName: 'Home',
+        iconData: Icons.home),
+    const ESDrawerItem(
+        type: eDrawerItemType.ditMenu,
+        index: eDrawerIndex.diProfile,
+        labelName: 'My Profile',
+        iconData: Icons.person),
+    const ESDrawerItem(
+        type: eDrawerItemType.ditDivider,
+        index: eDrawerIndex.diDivider), // Add a divider here
+    const ESDrawerItem(
         type: eDrawerItemType.ditLink,
-        index: eDrawerIndex.diAboutUS,
-        labelName: 'About US',
-        iconData: Icons.group,
-        // Please note: LaunchURL won't work. Can't open in package without activity { Ajmal }
-        launchURL: '',
-        ),
-    ];
+        index: eDrawerIndex.diShare,
+        labelName: 'Share',
+        iconData: Icons.share),
+    const ESDrawerItem(
+      type: eDrawerItemType.ditLink,
+      index: eDrawerIndex.diAboutUS,
+      labelName: 'About US',
+      iconData: Icons.group,
+    ),
+  ];
 
     @override
     _MainNavigationState createState() => _MainNavigationState();
