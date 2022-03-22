@@ -6,7 +6,6 @@
  */
 
 import 'package:es_drawer_controller/es_drawer_controller.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'es_app_theme.dart';
@@ -83,7 +82,9 @@ class _ESDrawerState<T> extends State<ESDrawer> {
                 switch (widget.drawerList[index].type) {
                   case eDrawerItemType.ditDivider:
                     return Divider(
-                        height: 1, color: ESAppTheme.grey.withOpacity(0.6));
+                        height: 1,
+                        thickness: 1,
+                        color: ESAppTheme.grey.withOpacity(0.6));
 
                   default:
                     return inkwell(widget.drawerList[index]);

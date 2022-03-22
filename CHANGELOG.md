@@ -1,3 +1,7 @@
+## 1.0.9 Release 
+
+* Fixed divider not showing in web issue 
+
 ## 1.0.8 Release 
 
 * Code review fixes 
