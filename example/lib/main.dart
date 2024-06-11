@@ -1,7 +1,7 @@
 import 'package:es_drawer_controller/es_drawer_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void main() => runApp(MyApp());
 
@@ -110,7 +110,7 @@ class _MainNavigationState extends State<MainNavigation> {
             Share.share('https://github.com/ajumalp/es_drawer_controller'));
         break;
       case eDrawerIndex.diAboutUS:
-        setState(() => launch('https://erratums.com'));
+        setState(() => launchUrlString('https://erratums.com'));
         break;
 
       default:

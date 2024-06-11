@@ -131,7 +131,7 @@ class _ESDrawerControllerState<T> extends State<ESDrawerController>
             duration: const Duration(), curve: Curves.fastOutSlowIn);
       }
     });
-    WidgetsBinding.instance?.addPostFrameCallback((_) => getInitState());
+    WidgetsBinding.instance.addPostFrameCallback((_) => getInitState());
   }
 
   @override

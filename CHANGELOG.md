@@ -1,3 +1,7 @@
+## 1.0.10 Release 
+
+* Fixed Flutter upgrade issues  
+
 ## 1.0.9 Release 
 
 * Fixed divider not showing in web issue 
